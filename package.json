@@ -1,0 +1,45 @@
+{
+  "name": "copyforai",
+  "displayName": "Copy for AI",
+  "description": "Copy code snippets with context for ChatGPT or other AI tools.",
+  "version": "0.0.1",
+  "icon": "images/copyforai.png",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.copyForAI",
+        "title": "📋 Copy Code For AI"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.copyForAI",
+          "when": "editorHasSelection",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.102.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.25.1",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
