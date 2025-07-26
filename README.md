@@ -2,6 +2,12 @@
 
 Copy code from VS Code with project, file, and context information – ready to paste into ChatGPT or other AI tools.
 
+![Right-click menu](./images/right_click.png)  
+Fig. 1 *This is where you find the command in VS Code.*
+
+![Pasting into ChatGPT](./images/paste_to_chatgpt.png)  
+Fig. 2 *This is how it looks when you paste into ChatGPT.*
+
 ## Features
 - Adds a **Copy for AI** command to the editor menu.
 - Copies selected text with project name, file name, and line numbers.
@@ -13,4 +19,3 @@ Copy code from VS Code with project, file, and context information – ready to 
 2. Run **Copy for AI** from the context menu or Command Palette.
 3. Paste into ChatGPT (`Ctrl+V`).
 
-_Screenshot coming soon._
