@@ -1,6 +1,7 @@
 {
   "name": "copyforai",
   "displayName": "Copy for AI",
+  "publisher": "SidaLiu",
   "description": "Copy code snippets with context for ChatGPT or other AI tools.",
   "version": "0.0.1",
   "icon": "images/copyforai.png",
@@ -41,5 +42,9 @@
     "eslint": "^9.25.1",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liusida/copyforai.git"
   }
 }
