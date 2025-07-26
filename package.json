@@ -28,7 +28,14 @@
           "group": "navigation"
         }
       ]
-    }
+    },
+    "keybindings": [
+      {
+        "command": "extension.copyForAI",
+        "key": "ctrl+shift+c",
+        "when": "editorTextFocus && editorHasSelection"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
