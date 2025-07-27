@@ -23,3 +23,7 @@ Easily copy code from VS Code with project, file, and context details – ready 
    - Command Palette  
    - Or press `Ctrl + Shift + C`  
 3. **Paste (`Ctrl + V`)** into ChatGPT (or any AI tool) and start asking questions.  
+
+## 📦 Get it on VS Code Marketplace 
+
+➡ [https://marketplace.visualstudio.com/items?itemName=SidaLiu.copyforai](https://marketplace.visualstudio.com/items?itemName=SidaLiu.copyforai)
