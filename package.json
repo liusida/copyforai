@@ -3,7 +3,7 @@
   "displayName": "Copy for AI by SidaLiu",
   "publisher": "SidaLiu",
   "description": "Copy code snippets with context for ChatGPT or other AI tools.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "icon": "images/copyforai.png",
   "engines": {
     "vscode": "^1.102.0"
