@@ -12,9 +12,9 @@ Easily copy code from VS Code with project, file, and context details – ready 
 
 ## 🚀 Why use Copy for AI?  
 ✔️ No need to type triple backticks ` ``` ` every time.  
-✔️ Automatically includes project name, file path, and line numbers.  
-✔️ Adds a few surrounding context lines for clarity.  
-✔️ Outputs clean, Markdown‑formatted code ready for AI.  
+✔️ Automatically includes file path, and line numbers.  
+✔️ Optionally adds surrounding context lines (configurable in settings).  
+✔️ Produces clean, Markdown‑formatted code ready for AI.  
 
 ## 🛠 How to Use  
 1. **Select the code** you want in VS Code.  

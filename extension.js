@@ -12,40 +12,41 @@ function activate(context) {
     const filePath = document.uri.fsPath;
     const folderPath = vscode.workspace.getWorkspaceFolder(document.uri)?.uri.fsPath || path.dirname(filePath);
     const fileName = path.basename(filePath);
-    const projectName = vscode.workspace.name || path.basename(folderPath);
-    const languageId = document.languageId;
+    // const projectName = vscode.workspace.name || path.basename(folderPath);
+    // const languageId = document.languageId;
 
     const selectedText = document.getText(selection);
 
-    // Get context lines (3 above and 3 below)
-    const startLine = Math.max(0, selection.start.line - 3);
-    const endLine = Math.min(document.lineCount - 1, selection.end.line + 3);
+    const config = vscode.workspace.getConfiguration("copyforai");
+    const includeContext = config.get("includeContext", true);
 
-    let contextText = "";
-    for (let i = startLine; i <= endLine; i++) {
-      contextText += document.lineAt(i).text + "\n";
+    // Get context lines
+    const startLine = Math.max(0, selection.start.line - 2);
+    const endLine = Math.min(document.lineCount - 1, selection.end.line + 2);
+
+    const aboveLines = [];
+    for (let i = startLine; i < selection.start.line; i++) {
+      aboveLines.push(document.lineAt(i).text);
+    }
+
+    const belowLines = [];
+    for (let i = selection.end.line + 1; i <= endLine; i++) {
+      belowLines.push(document.lineAt(i).text);
     }
 
     // Format text
-    const customText = `📌 Code snippet from VS Code
-
-🔹 Project: ${projectName}
-🔹 Folder: ${folderPath}
-🔹 File: ${fileName}
-🔹 Lines: ${selection.start.line + 1}-${selection.end.line + 1}
-
-📝 Selected code:
-\`\`\`${languageId}
-${selectedText}
-\`\`\`
-
-📚 Context:
-\`\`\`${languageId}
-${contextText.trimEnd()}
-\`\`\`
-
-
-`;
+    let customText = `📋 Code snippet copied from ${folderPath}\\${fileName} (lines ${selection.start.line + 1}-${selection.end.line + 1})\n\n`
+    if (includeContext && aboveLines.length) {
+      customText += `**Above context:**\n\`\`\`\n...\n${aboveLines.join("\n")}\n\`\`\`\n\n`;
+    }
+    if (includeContext) {
+      customText += `**📋 Selected code:**\n`;
+    }
+    customText += `\`\`\`\n${selectedText}\n\`\`\`\n\n`;
+    if (includeContext && belowLines.length) {
+      customText += `**Below context:**\n\`\`\`\n${belowLines.join("\n")}\n...\n\`\`\`\n`;
+    }
+    customText += `---\n\n`;
 
     await vscode.env.clipboard.writeText(customText);
     vscode.window.showInformationMessage("📋 Copied formatted code to clipboard!");
@@ -54,6 +55,6 @@ ${contextText.trimEnd()}
   context.subscriptions.push(disposable);
 }
 
-function deactivate() {}
+function deactivate() { }
 
 module.exports = { activate, deactivate };

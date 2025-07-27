@@ -35,7 +35,17 @@
         "key": "ctrl+shift+c",
         "when": "editorTextFocus && editorHasSelection"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Copy for AI",
+      "properties": {
+        "copyforai.includeContext": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include surrounding context lines when copying code for AI."
+        }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint .",
